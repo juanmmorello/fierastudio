@@ -9,109 +9,109 @@ public class TamagotchiTests extends TestApplicationTests {
 
     @Test
     public void performAction_feedWithCurrentStatusHungry_changeStatusToHappy() {
-        Tamagotchi tamagotchi = new Tamagotchi(Status.HUNGRY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Hungry());
 
-        tamagotchi.performAction(new Feed());
+        tamagotchi.setStatus(tamagotchi.getStatus().toFeed());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HAPPY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Happy.class);
     }
 
     @Test
     public void performAction_feedWithCurrentStatusSad_doubleBeepAndPuke() {
-        Tamagotchi tamagotchi = new Tamagotchi(Status.SAD);
+        Tamagotchi tamagotchi = new Tamagotchi(new Sad());
 
-        tamagotchi.performAction(new Feed());
+        tamagotchi.setStatus(tamagotchi.getStatus().toFeed());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.SAD);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Sad.class);
     }
 
     @Test
     public void performAction_feedWithCurrentStatusThirsty_doNothing() {
-        Tamagotchi tamagotchi = new Tamagotchi(Status.THIRSTY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Thirsty());
 
-        tamagotchi.performAction(new Feed());
+        tamagotchi.setStatus(tamagotchi.getStatus().toFeed());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.THIRSTY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Thirsty.class);
     }
 
     @Test
-    public void performAction_feedWithCurrentStatusHungry_doNothing() {
-        Tamagotchi tamagotchi = new Tamagotchi(Status.HAPPY);
+    public void performAction_feedWithCurrentStatusHappy_doNothing() {
+        Tamagotchi tamagotchi = new Tamagotchi(new Happy());
 
-        tamagotchi.performAction(new Feed());
+        tamagotchi.setStatus(tamagotchi.getStatus().toFeed());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HAPPY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Happy.class);
     }
 
     @Test
     public void performAction_drinkWithCurrentStatusThirsty_changeStatusToHappy() {
-        Tamagotchi tamagotchi = new Tamagotchi(Status.THIRSTY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Thirsty());
 
-        tamagotchi.performAction(new Drink());
+        tamagotchi.setStatus(tamagotchi.getStatus().toDrink());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HAPPY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Happy.class);
     }
 
     @Test
     public void performAction_drinkWithCurrentStatusHappy_quintupleBeep(){
-        Tamagotchi tamagotchi = new Tamagotchi(Status.HAPPY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Happy());
 
-        tamagotchi.performAction(new Drink());
+        tamagotchi.setStatus(tamagotchi.getStatus().toDrink());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HAPPY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Happy.class);
     }
 
     @Test
     public void performAction_drinkWithCurrentStatusSad_tripleBeepAndFlashDisplay(){
-        Tamagotchi tamagotchi = new Tamagotchi(Status.SAD);
+        Tamagotchi tamagotchi = new Tamagotchi(new Sad());
 
-        tamagotchi.performAction(new Drink());
+        tamagotchi.setStatus(tamagotchi.getStatus().toDrink());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.SAD);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Sad.class);
     }
 
     @Test
     public void performAction_drinkWithCurrentStatusHungry_doNothing() {
-        Tamagotchi tamagotchi = new Tamagotchi(Status.HUNGRY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Hungry());
 
-        tamagotchi.performAction(new Drink());
+        tamagotchi.setStatus(tamagotchi.getStatus().toDrink());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HUNGRY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Hungry.class);
     }
 
     @Test
     public void performAction_petWithCurrentStatusSad_changeStatusToHappy(){
-        Tamagotchi tamagotchi = new Tamagotchi(Status.SAD);
+        Tamagotchi tamagotchi = new Tamagotchi(new Sad());
 
-        tamagotchi.performAction(new Pet());
+        tamagotchi.setStatus(tamagotchi.getStatus().toPet());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HAPPY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Happy.class);
     }
 
     @Test
     public void performAction_petWithCurrentStatusHappy_doNothing(){
-        Tamagotchi tamagotchi = new Tamagotchi(Status.HAPPY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Happy());
 
-        tamagotchi.performAction(new Pet());
+        tamagotchi.setStatus(tamagotchi.getStatus().toPet());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HAPPY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Happy.class);
     }
 
     @Test
     public void performAction_petWithCurrentStatusHungry_doNothing(){
-        Tamagotchi tamagotchi = new Tamagotchi(Status.HUNGRY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Hungry());
 
-        tamagotchi.performAction(new Pet());
+        tamagotchi.setStatus(tamagotchi.getStatus().toPet());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.HUNGRY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Hungry.class);
     }
 
     @Test
     public void performAction_petWithCurrentStatusThirsty_doNothing(){
-        Tamagotchi tamagotchi = new Tamagotchi(Status.THIRSTY);
+        Tamagotchi tamagotchi = new Tamagotchi(new Thirsty());
 
-        tamagotchi.performAction(new Pet());
+        tamagotchi.setStatus(tamagotchi.getStatus().toPet());
 
-        assertThat(tamagotchi.getStatus()).isEqualTo(Status.THIRSTY);
+        assertThat(tamagotchi.getStatus().getClass()).isEqualTo(Thirsty.class);
     }
 }

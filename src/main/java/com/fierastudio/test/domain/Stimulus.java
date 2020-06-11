@@ -1,6 +1,7 @@
 package com.fierastudio.test.domain;
 
-public abstract class Stimulus {
-
-    abstract Status stimulate(Status status);
+public interface Stimulus {
+    Status toFeed();
+    Status toDrink();
+    Status toPet();
 }

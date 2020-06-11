@@ -1,5 +1,5 @@
 package com.fierastudio.test.domain;
 
-public enum Status {
-    HAPPY, SAD, HUNGRY, THIRSTY
+public abstract class Status implements Stimulus {
+
 }
